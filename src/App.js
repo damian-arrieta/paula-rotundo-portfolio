@@ -3,22 +3,32 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <div className="container-title">
+          <h1>Paula Rotundo</h1>
+          <h2>Tu profesión.</h2>
+        </div>
+        <div className="links">
+          <button>
+            <a href="">Blog</a>
+          </button>
+          <button>
+            <a href="">Instagram</a>
+          </button>
+          <button>
+            <a href="">Linkedin</a>
+          </button>
+          <button>
+            <a href="">WhatsApp</a>
+          </button>
+        </div>
+        <div className="footer">
+          <p>Diseñado por Damián Arrieta.</p>
+          <a href="https://damian-arrieta.com/"></a>
+        </div>
+      </div>
+    </>
   );
 }
 
