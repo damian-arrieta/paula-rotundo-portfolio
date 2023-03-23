@@ -4,40 +4,34 @@ export default function Footer() {
   return (
     <footer className="footer">
         <div className="box-container">
-            <div className="box">
-                <h3> Paula Rotundo </h3>
-                <p>Algo de texto.</p>
+            <div className="box box-left">
+                <h3 className='footer-title'>Paula Rotundo</h3>
+                <p className='footer-txt'>Algo de texto.</p>
                 <div className="share">
-                    <a className='header-link' href="https://sites.google.com/view/ganeshinbound/inicio">
-                        <i className="bi bi-book"></i>
+                    <a className='footer-link' href="https://sites.google.com/view/ganeshinbound/inicio">
+                        <i className="i-footer bi bi-book"></i>
                     </a>
-                    <a className='header-link' href="">
-                        <i className="bi bi-linkedin"></i>
+                    <a className='footer-link' href="">
+                        <i className="i-footer bi bi-linkedin"></i>
                     </a>
-                    <a className='header-link' href="">
-                        <i className="bi bi-instagram"></i>
+                    <a className='footer-link' href="">
+                        <i className="i-footer bi bi-instagram"></i>
                     </a>
-                    <a className='header-link' href="">
-                        <i className="bi bi-envelope-paper-heart"></i>
+                    <a className='footer-link' href="">
+                        <i className="i-footer bi bi-envelope-paper-heart"></i>
                     </a>
-                    <a className='header-link' href="">
-                        <i className="bi bi-whatsapp"></i>
+                    <a className='footer-link' href="">
+                        <i className="i-footer bi bi-whatsapp"></i>
                     </a>
                 </div>
-                <div className="box">
-                    <h3>Contacto</h3>
-                    <a className="links"> <i class="fas fa-phone"></i> +111-111-1111 </a>
-                    <a className="links"> <i class="fas fa-envelope"></i> paula@mail.com </a>
-                    <a className="links"> <i class="fas fa-map-marker-alt"></i>Argentina </a>
-                </div>
-                <div className="box">
-                    <p>Copyright © 2023 Paula Rotundo</p>
-                    <p>Todos los derechos reservados</p>
-                </div>
+            </div>
+            <div className="box box-right">
+                <p className='copyright'>Copyright © 2023 Paula Rotundo</p>
+                <p className='copyright'>Todos los derechos reservados</p>
             </div>
         </div>
         <div className="credit">
-            <p>Desarrollado por Damián Arrieta | <a href="https://damian-arrieta.com/">https://damian-arrieta.com/</a></p>
+            <p className='credit-txt'>Desarrollado por Damián Arrieta | <a className="text-black" href="https://damian-arrieta.com/">www.damian-arrieta.com</a></p>
         </div>
     </footer>
   )
