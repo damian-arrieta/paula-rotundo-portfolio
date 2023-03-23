@@ -20,6 +20,21 @@
   box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: 'Shrikhand', sans-serif ;
+}
+
+p, a, li, button, ul {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+}
+
 .text-black {
   color: #000000; }
 
@@ -49,7 +64,6 @@ h1 {
   transform: translate(-50%, -50%);
   height: 80px;
   line-height: 80px;
-  font-family: 'Shrikhand', sans-serif;
   font-size: 80px;
   color: var(--principal);
 }
@@ -63,14 +77,13 @@ h1 {
   text-align: center;
 }
 
-h2 {
+.profession {
   position: absolute;
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 30px;
   line-height: 30px;
-  font-family: 'Quicksand', sans-serif;
   font-size: 30px;
   margin-top: 50px;
   color: var(--principal);
@@ -80,7 +93,7 @@ h2 {
   display: flex;
 }
 
-a {
+.header-link {
   display: inline-block;
   height: 4rem;
   width: 4rem;
@@ -99,7 +112,7 @@ a {
 
 /*---------- Home ----------*/
 
-.eventos {
+.news {
   padding: 50px 0;
   text-align: center;
   height: 100vh;
@@ -116,6 +129,12 @@ a {
   overflow: hidden;
   align-items: center;
   justify-content: center;
+}
+
+.news-title {
+  font-size: 50px;
+  grid-column: 1/-1;
+  text-align: center;
 }
 
 .cards {
@@ -135,26 +154,31 @@ a {
   margin: auto;
   background-position: center center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  border: #bf4c41 2px solid;
 }
 
-h3 {
-  font-size: 400;
+.shadow-title {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-button {
-  display: inline-block;
-  height: 4rem;
-  width: 6rem;
-  line-height: 4rem;
+.btn-news {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 4.5rem;
   border-radius: 0.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #bf4c41;
-  margin-right: 0.2rem;
+  font-weight: bolder;
   text-align: center;
 }
 
-button:hover {
+.btn-news:hover {
   background: var(--principal);
   color: #fff;
 }

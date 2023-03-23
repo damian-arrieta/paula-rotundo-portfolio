@@ -2,25 +2,28 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <section class="eventos">
-        <div class="grid">
-            <div class="cards">
-                <div class="card card-1">
-                    <h3 class="text-white">Oportuncrisis</h3>
+    <section className="news">
+        <div className="grid">
+            <div className="news-title">
+                <h2 className="text-black">Blog</h2>
+            </div>
+            <div className="cards">
+                <div className="card card-1">
+                    <h3 className="text-white shadow-title">Oportuncrisis</h3>
                     <a href="">
-                        <button class="btn btn-light">Leer</button>
+                        <button className="btn-news">Ver</button>
                     </a>
                 </div>
-                <div class="card card-2">
-                    <h3 class="text-white">Presentación</h3>
+                <div className="card card-2">
+                    <h3 className="text-white shadow-title">Presentación</h3>
                     <a href="">
-                        <button class="btn btn-light">Leer</button> 
+                        <button className="btn-news">Ver</button> 
                     </a>
                 </div>
-                <div class="card card-3">
-                    <h3 className="text-white">Estrategia de márketing</h3>
+                <div className="card card-3">
+                    <h3 className="text-white shadow-title">Estrategia de márketing</h3>
                     <a href="">
-                        <button className="btn btn-light">Leer</button>
+                        <button className="btn-news">Ver</button>
                     </a> 
                 </div>
             </div>

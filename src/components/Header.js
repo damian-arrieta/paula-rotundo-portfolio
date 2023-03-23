@@ -8,22 +8,22 @@ export default function Header() {
             <h1>Paula Rotundo</h1>
         </div>
         <div className="container-bottom">
-            <h2>Tu profesión.</h2>
-            <div class="links">
-            <a href="https://sites.google.com/view/ganeshinbound/inicio">
-                <i class="bi bi-book"></i>
+            <h2 className='profession'>Tu profesión.</h2>
+            <div className="links">
+            <a className='header-link' href="https://sites.google.com/view/ganeshinbound/inicio">
+                <i className="bi bi-book"></i>
             </a>
-            <a href="">
-                <i class="bi bi-linkedin"></i>
+            <a className='header-link' href="">
+                <i className="bi bi-linkedin"></i>
             </a>
-            <a href="">
-                <i class="bi bi-instagram"></i>
+            <a className='header-link' href="">
+                <i className="bi bi-instagram"></i>
             </a>
-            <a href="">
-                <i class="bi bi-envelope-paper-heart"></i>
+            <a className='header-link' href="">
+                <i className="bi bi-envelope-paper-heart"></i>
             </a>
-            <a href="">
-                <i class="bi bi-whatsapp"></i>
+            <a className='header-link' href="">
+                <i className="bi bi-whatsapp"></i>
             </a>
             </div>
         </div>
