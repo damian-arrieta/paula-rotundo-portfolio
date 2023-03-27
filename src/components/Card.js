@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function Card(props) {
-    const { entryData } = props;
-    const { title, thumbnail } = entryData;
+  const { title, thumbnail } = props.entryData;
   return (
     <div className="card" style={{ backgroundImage: `url("${thumbnail}")` }}>
         <h3 className="text-white shadow-title">{ title }</h3>
