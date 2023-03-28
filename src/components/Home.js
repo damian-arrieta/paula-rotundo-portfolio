@@ -1,14 +1,28 @@
-import React from 'react';
-import NewsList from './NewsList';
-import Header from './Header';
+import React, { useState } from 'react';
+import Card from './Card';
 import BlogForm from './BlogForm';
+import './Home.css';
+import { Link } from 'react-router-dom';
 
-export default function Home() {
+const Home = () => {
+  const [selectedBlog, setSelectedBlog] = useState(null);
+
+  const handleBlogSelect = (blog) => {
+    setSelectedBlog(blog);
+  }
+
   return (
-    <>
-        <Header />
-        <NewsList />
-        <BlogForm />
-    </>
-  )
+    <div className='home-container'>
+      <BlogForm handleBlogSelect={handleBlogSelect} />
+      <div className='cards-container'>
+        {cards.map((card, index) => (
+          <Link key={index} to={`/posteos/${index}`}>
+            <Card entryData={card} />
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
 }
+
+export default Home;
