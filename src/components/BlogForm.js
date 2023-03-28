@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
+import { getDatabase, ref, push } from "firebase/database";
 
 const BlogForm = () => {
   const [entries, setEntries] = useState([{ type: 'h1', text: '' }]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Envía la información a la base de datos
-  }
+  
+    // Crea una referencia a la base de datos
+    const dbRef = ref(getDatabase());
+  
+    // Agrega los datos del formulario como un nuevo objeto en la base de datos
+    push(dbRef, { entries });
+  
+    // Limpia el formulario
+    setEntries([{ type: 'h1', text: '' }]);
+  };
+  
 
   const handleAddEntry = (event) => {
     event.preventDefault();
