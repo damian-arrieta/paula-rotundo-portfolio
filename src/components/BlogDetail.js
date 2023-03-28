@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getBlogById } from '../utils/api';
-import './BlogDetail.css';
 
 const BlogDetail = () => {
   const { postId } = useParams();
-  const blog = getBlogById(postId);
+  const [blog, setBlog] = useState(null);
+
+  useEffect(() => {
+    const fetchBlog = async () => {
+      const blogData = await getBlogById(postId);
+      setBlog(blogData);
+    };
+    fetchBlog();
+  }, [postId]);
+
+  if (!blog) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="blog-detail-container">

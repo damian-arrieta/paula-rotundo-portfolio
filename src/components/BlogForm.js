@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getDatabase, ref, push } from "firebase/database";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const BlogForm = () => {
   const [entries, setEntries] = useState([{ type: 'h1', text: '' }]);
@@ -7,16 +7,30 @@ const BlogForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    // Crea una referencia a la base de datos
-    const dbRef = ref(getDatabase());
+    // Obtener referencia a la base de datos
+    const db = getFirestore();
   
-    // Agrega los datos del formulario como un nuevo objeto en la base de datos
-    push(dbRef, { entries });
+    // Crear una referencia a la ubicación donde se guardarán los datos
+    const postsCollection = collection(db, 'posts');
   
-    // Limpia el formulario
-    setEntries([{ type: 'h1', text: '' }]);
-  };
+    // Obtener los valores de los campos del formulario y asignarlos al objeto postData
+    const title = event.target.elements.title.value;
+    const description = event.target.elements.description.value;
+    const imageUrl = event.target.elements.imageUrl.value;
+    const blogEntries = entries.map(entry => ({ type: entry.type, text: entry.text }));
+    const postData = { title, description, imageUrl, blogEntries };
   
+    // Agregar los datos a la base de datos usando push
+    addDoc(postsCollection, postData)
+    .then(() => {
+      // Si la operación fue exitosa, puedes mostrar un mensaje al usuario
+      console.log("Datos agregados correctamente");
+    })
+    .catch((error) => {
+      // Si ocurrió un error, puedes mostrar un mensaje de error al usuario
+      console.error("Error al agregar los datos:", error);
+    });  
+  };  
 
   const handleAddEntry = (event) => {
     event.preventDefault();

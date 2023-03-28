@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import BlogForm from './BlogForm';
-import './Home.css';
 import { Link } from 'react-router-dom';
+import { getBlogData } from '../utils/api';
+import Header from './Header';
 
 const Home = () => {
   const [selectedBlog, setSelectedBlog] = useState(null);
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    getBlogData().then((data) => {
+      setBlogs(data);
+    }).catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
   const handleBlogSelect = (blog) => {
     setSelectedBlog(blog);
@@ -13,11 +23,12 @@ const Home = () => {
 
   return (
     <div className='home-container'>
+      <Header />
       <BlogForm handleBlogSelect={handleBlogSelect} />
       <div className='cards-container'>
-        {cards.map((card, index) => (
-          <Link key={index} to={`/posteos/${index}`}>
-            <Card entryData={card} />
+        {blogs.map((blog, index) => (
+          <Link key={blog.id} to={`/posteos/${blog.id}`}>
+            <Card entryData={blog} />
           </Link>
         ))}
       </div>
