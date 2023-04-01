@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export default function Post() {
+export default function Post({info}) {
   return (
-    <div>Post</div>
+    <a href="">
+        <img src={info.image} alt="" />
+        <h3>{info.title}</h3>
+    </a>
   )
 }

@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Post from './Post';
 
-export default function PostList() {
+export default function PostList({data = []}) {
   return (
-    <div>PostList</div>
+    data.map(post => <Post key={post.id} info={post} />)
   )
 }
