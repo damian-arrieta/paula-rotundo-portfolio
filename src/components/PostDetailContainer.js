@@ -11,7 +11,7 @@ export default function PostDetailContainer() {
 
     useEffect(() => {
         const getData = new Promise(resolve => {
-            resolve(post);
+            resolve(post[0]);
         });
         getData.then(res => setData(res));
     }, []);

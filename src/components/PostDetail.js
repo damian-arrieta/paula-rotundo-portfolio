@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function PostDetail() {
+export default function PostDetail({data}) {
   return (
-    <div>PostDetail</div>
+    <div>
+        <h1>{data.title}</h1>
+        <img src={data.image} alt="" />
+        <p>{data.content}</p>
+    </div>
   )
 }
