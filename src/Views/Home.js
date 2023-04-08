@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header';
-import PostDetailContainer from './PostDetailContainer';
+import Header from '../components/Header';
+import PostDetailContainer from '../components/PostDetailContainer';
 
 const Home = () => {
   return (
