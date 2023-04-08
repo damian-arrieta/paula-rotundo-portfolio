@@ -3,31 +3,16 @@ import React from 'react';
 export default function Header() {
   return (
     <>
-    <div className="container">
-        <div className="container-title">
-            <h1 className='title-home'>Paula Rotundo</h1>
-        </div>
-        <div className="container-bottom">
-            <h2 className='profession'>Tu profesión.</h2>
-            <div className="links">
-            <a className='header-link' href="https://sites.google.com/view/ganeshinbound/inicio">
-                <i className="bi bi-book"></i>
-            </a>
-            <a className='header-link' href="">
-                <i className="bi bi-linkedin"></i>
-            </a>
-            <a className='header-link' href="">
-                <i className="bi bi-instagram"></i>
-            </a>
-            <a className='header-link' href="">
-                <i className="bi bi-envelope-paper-heart"></i>
-            </a>
-            <a className='header-link' href="">
-                <i className="bi bi-whatsapp"></i>
-            </a>
+        <div className="px-4 py-5 my-5 text-center">
+            <h1 className="display-5 fw-bold text-body-emphasis">Paula Rotundo</h1>
+            <div className="col-lg-6 mx-auto">
+            <p className="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+            <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" className="btn btn-primary btn-lg px-4 gap-3">IR</button>
+                <button type="button" className="btn btn-outline-secondary btn-lg px-4">IR</button>
+            </div>
             </div>
         </div>
-    </div>
     </>
   )
 }

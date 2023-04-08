@@ -19,6 +19,10 @@ export default function BlogListContainer() {
     }, []);
 
   return (
-    <PostList data={data} />
+    <div className="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <PostList data={data} />
+      </div>
+    </div>
   )
 }

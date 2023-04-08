@@ -1,38 +1,36 @@
-import React from 'react'
+import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="footer">
-        <div className="box-container">
-            <div className="box box-left">
-                <h3 className='footer-title'>Paula Rotundo</h3>
-                <p className='footer-txt'>Algo de texto.</p>
-                <div className="share">
-                    <a className='footer-link' href="https://sites.google.com/view/ganeshinbound/inicio">
-                        <i className="i-footer bi bi-book"></i>
-                    </a>
-                    <a className='footer-link' href="">
-                        <i className="i-footer bi bi-linkedin"></i>
-                    </a>
-                    <a className='footer-link' href="">
-                        <i className="i-footer bi bi-instagram"></i>
-                    </a>
-                    <a className='footer-link' href="">
-                        <i className="i-footer bi bi-envelope-paper-heart"></i>
-                    </a>
-                    <a className='footer-link' href="">
-                        <i className="i-footer bi bi-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            <div className="box box-right">
-                <p className='copyright'>Copyright © 2023 Paula Rotundo</p>
-                <p className='copyright'>Todos los derechos reservados</p>
-            </div>
-        </div>
-        <div className="credit">
-            <p className='credit-txt'>Desarrollado por Damián Arrieta | <a className="text-black" href="https://damian-arrieta.com/">www.damian-arrieta.com</a></p>
-        </div>
+    <footer className="py-3 my-4">
+        <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+            <li className="nav-item">
+                <a href="#" className="nav-link px-2 text-body-secondary">
+                    <i className="i-footer bi bi-book" width="24" height="24"></i>
+                </a>
+            </li>
+            <li className="nav-item">
+                <a href="#" className="nav-link px-2 text-body-secondary">
+                    <i className="i-footer bi bi-linkedin" width="24" height="24"></i>
+                </a>
+            </li>
+            <li className="nav-item">
+                <a href="#" className="nav-link px-2 text-body-secondary">
+                    <i className="i-footer bi bi-instagram" width="24" height="24"></i>
+                </a>
+            </li>
+            <li className="nav-item">
+                <a href="#" className="nav-link px-2 text-body-secondary">
+                    <i className="i-footer bi bi-envelope-paper-heart" width="24" height="24"></i>
+                </a>
+            </li>
+            <li className="nav-item">
+                <a href="#" className="nav-link px-2 text-body-secondary">
+                    <i className="i-footer bi bi-whatsapp" width="24" height="24"></i>
+                </a>
+            </li>
+        </ul>
+        <p className="text-center text-body-secondary">Desarrollado por Damián Arrieta | <a className="text-black" href="https://damian-arrieta.com/">www.damian-arrieta.com</a></p>
     </footer>
   )
 }
