@@ -57,7 +57,7 @@ p, a, li, button, ul {
   text-align: center;
 }
 
-h1 {
+.title-home {
   position: absolute;
   top: 50%;
   left: 50%;

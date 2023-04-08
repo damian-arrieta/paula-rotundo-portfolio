@@ -5,7 +5,7 @@ export default function Header() {
     <>
     <div className="container">
         <div className="container-title">
-            <h1>Paula Rotundo</h1>
+            <h1 className='title-home'>Paula Rotundo</h1>
         </div>
         <div className="container-bottom">
             <h2 className='profession'>Tu profesión.</h2>
