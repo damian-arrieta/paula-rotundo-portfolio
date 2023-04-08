@@ -8,7 +8,7 @@ export default function Post({info}) {
         <div className="card shadow-sm">
           <img src={info.image} className="bd-placeholder-img card-img-top" width="100%" height="225"></img>
           <div className="card-body">
-            <h2 className="card-text">{info.title}</h2>
+            <h2 className="card-text text-center text-decoration-none">{info.title}</h2>
           </div>
         </div>
       </Link>

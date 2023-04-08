@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import PostDetail from './PostDetail';
+import Navbar from './Navbar';
 
 const posts = [
     { id: 1, image: 'https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png', title: 'Primer Post', content: '...' },
@@ -22,5 +23,10 @@ export default function PostDetailContainer() {
         }
     }, [postId]);
 
-    return <PostDetail data={data} />;
+    return (
+        <>
+            <Navbar />
+            <PostDetail data={data} />;
+        </>
+    )
 }
