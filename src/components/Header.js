@@ -11,27 +11,27 @@ export default function Header() {
             <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
               <ul className="nav justify-content-center pb-3 mb-3">
                 <li className="nav-item">
-                  <a href="#" className="btn nav-link px-2">
+                  <a href="#" className="btn nav-link px-2 link-header">
                     <i className="btn btn-lg btn-header bi bi-book"></i>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link px-2">
+                  <a href="#" className="nav-link px-2 link-header">
                     <i className="btn btn-lg btn-header bi bi-linkedin"></i>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link px-2">
+                  <a href="#" className="nav-link px-2 link-header">
                     <i className="btn btn-lg btn-header bi bi-instagram"></i>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link px-2">
+                  <a href="#" className="nav-link px-2 link-header">
                     <i className="btn btn-lg btn-header bi bi-envelope-paper-heart"></i>
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link px-2">
+                  <a href="#" className="nav-link px-2 link-header">
                     <i className="btn btn-lg btn-header bi bi-whatsapp"></i>
                   </a>
                 </li>

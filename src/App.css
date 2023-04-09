@@ -48,7 +48,7 @@ p, a, li, button, ul {
   height: 100vh;
 }
 
-.nav-link{
+.link-header{
   width: 128px;
 }
 
@@ -59,4 +59,9 @@ p, a, li, button, ul {
 .btn-header:hover{
   color: #ffffff;
   background-color: var(--principal);
+}
+
+.line-bottom{
+  border-bottom: 1px solid var(--principal);
+  width: auto;
 }
