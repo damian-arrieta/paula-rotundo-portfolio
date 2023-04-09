@@ -65,3 +65,12 @@ p, a, li, button, ul {
   border-bottom: 1px solid var(--principal);
   width: auto;
 }
+
+.btn-navbar{
+  color: var(--background);
+  background-color: var(--principal);
+}
+
+.btn-navbar:hover{
+  color: var(--principal);
+}
