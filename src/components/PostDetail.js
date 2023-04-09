@@ -6,16 +6,15 @@ export default function PostDetail({ data }) {
     <div className="container">
       <div className="row">
         <div className="col-12 m-5">
-          <h1>{data.title}</h1>
-          <p className="text-muted">08/Abril/2023</p>
+          <h1 className='text-center text-principal'>{data.title}</h1>
         </div>
       </div>
       <div className="container p-2">
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-5">
             <img src={data.image} className="img-fluid rounded" alt={data.title} />
           </div>
-          <div className="col-md-8">
+          <div className="col-md-7">
             <h2>Subtítulo del blog</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis eius quia iste, ipsa soluta excepturi ullam illum, facilis, eos quam odit quod dignissimos modi explicabo nemo nobis assumenda aliquid sed!</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At repudiandae eligendi nihil alias, labore, velit itaque corporis sunt expedita dignissimos eaque iure facere necessitatibus! Voluptates deleniti laboriosam tempora placeat commodi?</p>

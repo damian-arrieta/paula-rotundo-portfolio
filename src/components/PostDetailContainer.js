@@ -26,7 +26,9 @@ export default function PostDetailContainer() {
     return (
         <>
             <Navbar />
-            <PostDetail data={data} />;
+            <div className="container">
+                <PostDetail data={data} />;
+            </div>
         </>
     )
 }
