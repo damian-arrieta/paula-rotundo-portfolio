@@ -1,132 +1,167 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import db from '../Firebase/config';
+import { push, ref, set } from 'firebase/database';
 
-const BlogForm = ({ addEntry }) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState([]);
+function BlogEntryForm() {
+    const [blogContent, setBlogContent] = useState([]);
+    const [showForm, setShowForm] = useState(true);
+    const [contentType, setContentType] = useState("title");
+    const [contentValue, setContentValue] = useState("");
+    const [imageUrl, setImageUrl] = useState("");
 
-  const handleChange = (e, index) => {
-    const { name, value } = e.target;
-    const updatedContent = [...content];
-    updatedContent[index][name] = value;
-    setContent(updatedContent);
+  const handleContentTypeChange = (event) => {
+    const selectedType = event.target.value;
+    setContentType(selectedType);
+    if (selectedType === "img") {
+      setContentValue("");
+    } else {
+      setContentValue("");
+      setImageUrl("");
+    }
   };
 
-  const handleTagChange = (e, index) => {
-    const { value } = e.target;
-    const updatedContent = [...content];
-    updatedContent[index].tag = value;
-    setContent(updatedContent);
+  const handleContentValueChange = (event) => {
+    setContentValue(event.target.value);
   };
 
-  const handleAddEntry = () => {
-    const entry = {
-      title: title,
-      content: content
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    let newContent = {
+      type: contentType,
+      value: contentValue,
     };
-    addEntry(entry);
-    setTitle("");
-    setContent([]);
+    if (contentType === "img") {
+      newContent = {
+        ...newContent,
+        imageUrl,
+      };
+    }
+    setBlogContent([...blogContent, newContent]);
+    setContentValue("");
+    setImageUrl("");
+  };  
+
+  const sendDataToAPI = () => {
+    const blogRef = push(ref(db, 'blogs'));
+    set(blogRef, { content: blogContent });
+    console.log("Enviando datos a la API:", blogContent);
   };
 
-  const handleAddTag = () => {
-    setContent([...content, { tag: "", content: "" }]);
-  };
-
-  const handleDeleteTag = (index) => {
-    const updatedContent = [...content];
-    updatedContent.splice(index, 1);
-    setContent(updatedContent);
+  const handleFinishButtonClick = () => {
+    if (blogContent.length > 0) {
+      const blogRef = push(ref(db, "blogs"));
+      set(blogRef, { content: blogContent });
+      console.log("Enviando datos a la API:", blogContent);
+      setBlogContent([]);
+    }
   };
 
   return (
-    <div>
-      <div className="form-group">
-        <label htmlFor="title">Title:</label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          className="form-control"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+    <>
+      <div className="container my-5">
+        <h1>Crear contenido</h1>
+        <hr />
+
+        {showForm && (
+          <form onSubmit={handleFormSubmit}>
+            {contentType !== "img" && (
+              <div className="mb-3">
+                <label htmlFor="content" className="form-label">
+                  Contenido:
+                </label>
+                <textarea
+                  className="form-control"
+                  id="content"
+                  name="content"
+                  value={contentValue}
+                  onChange={handleContentValueChange}
+                  required
+                ></textarea>
+              </div>
+            )}
+            <div className="mb-3">
+              <label htmlFor="type" className="form-label">
+                Tipo de contenido:
+              </label>
+              <select
+                className="form-select"
+                id="type"
+                name="type"
+                value={contentType}
+                onChange={handleContentTypeChange}
+              >
+                <option value="title">H1</option>
+                <option value="h2">H2</option>
+                <option value="h3">H3</option>
+                <option value="h4">H4</option>
+                <option value="h5">H5</option>
+                <option value="h6">H6</option>
+                <option value="p">Párrafo</option>
+                <option value="img">Link a imagen</option>
+              </select>
+            </div>
+            {contentType === "img" && (<div className="mb-3">
+<label htmlFor="image" className="form-label">
+Link de la imagen:
+</label>
+<input
+type="text"
+className="form-control"
+id="image"
+name="image"
+value={imageUrl}
+onChange={(event) => setImageUrl(event.target.value)}
+required
+/>
+</div>)}
+<button type="submit" className="btn btn-primary">
+Agregar contenido
+</button>
+</form>
+)}
+<div className="container my-5">
+          <h2>Vista previa</h2>
+          <hr />
+          {blogContent.map((content, index) => (
+            <div key={index}>
+              {content.type === "title" && (
+                <h1>{content.value}</h1>
+              )}
+              {content.type === "h2" && (
+                <h2>{content.value}</h2>
+              )}
+              {content.type === "h3" && (
+                <h3>{content.value}</h3>
+              )}
+              {content.type === "h4" && (
+                <h4>{content.value}</h4>
+              )}
+              {content.type === "h5" && (
+                <h5>{content.value}</h5>
+              )}
+              {content.type === "h6" && (
+                <h6>{content.value}</h6>
+              )}
+              {content.type === "p" && (
+                <p>{content.value}</p>
+              )}
+              {content.type === "img" && (
+                <img src={content.imageUrl} alt="Imagen del blog" />
+              )}
+            </div>
+          ))}
+        </div>
+        {blogContent.length > 0 && (
+        <button
+          className="btn btn-success"
+          onClick={handleFinishButtonClick}
+        >
+          Publicar
+        </button>
+      )}
       </div>
+    </>
+  );
+}
 
-      {content.map((tag, index) => (
-        <div key={index}>
-          <div className="form-group">
-            <label htmlFor={`tag-${index}`}>Select a tag:</label>
-            <select
-              name={`tag-${index}`}
-              id={`tag-${index}`}
-              className="form-control"
-              value={tag.tag}
-              onChange={(e) => handleTagChange(e, index)}
-            >
-              <option value="">-- Select a tag --</option>
-              <option value="h1">H1</option>
-              <option value="h2">H2</option>
-              <option value="h3">H3</option>
-              <option value="h4">H4</option>
-              <option value="h5">H5</option>
-              <option value="h6">H6</option>
-              <option value="p">Paragraph</option>
-              <option value="img">Image</option>
-            </select>
-          </div>
-
-          {tag.tag === "p" ? (
-            <div className="form-group">
-              <label htmlFor={`content-${index}`}>Content:</label>
-              <textarea
-                name={`content-${index}`}
-                id={`content-${index}`}
-                className="form-control"
-                rows="4"
-                value={tag.content}
-                onChange={(e) => handleChange(e, index)}
-              ></textarea>
-            </div>
-          ) : tag.tag === "img" ? (
-            <div className="form-group">
-              <label htmlFor={`content-${index}`}>Image URL:</label>
-              <input
-                type="text"
-                name={`content-${index}`}
-                id={`content-${index}`}
-                className="form-control"
-                value={tag.content}
-                onChange={(e) => handleChange(e, index)}
-              />
-            </div>
-          ) : (
-            <div className="form-group">
-              <label htmlFor={`content-${index}`}>Content:</label>
-              <input
-                type="text"
-                name={`content-${index}`}
-                id={`content-${index}`}
-                className="form-control"
-                value={tag.content}
-                onChange={(e) => handleChange(e, index)}
-                />
-                </div>
-                )}
-                      <button className="btn btn-danger" onClick={() => handleDeleteTag(index)}>
-        Delete Tag
-      </button>
-    </div>
-  ))}
-
-  <button className="btn btn-primary" onClick={handleAddTag}>
-    Add Tag
-  </button>
-
-  <button className="btn btn-primary" onClick={handleAddEntry}>
-    Add Entry
-  </button>
-</div>
-);
-};
-
-export default BlogForm;
+export default BlogEntryForm;
