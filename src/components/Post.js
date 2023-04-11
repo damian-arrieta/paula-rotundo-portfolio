@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Post({info}) {
+  console.log('info:', info);
   return (
     <div className="col">
       <Link to={`/post/${info.id}`}>

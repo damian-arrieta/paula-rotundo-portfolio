@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PostList from './PostList';
-
-const post = [
-    {id: 1, image: 'https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png', title: 'Primer Post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}, 
-    {id: 2, image: 'https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png', title: 'Segundo Post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'},
-    {id: 3, image: 'https://mailrelay.com/wp-content/uploads/2018/03/que-es-un-blog-1.png', title: 'Tercer Post', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-]
 
 export default function BlogListContainer() {
 
-    const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-    useEffect(() => {
-        const getData = new Promise(resolve => {
-            resolve(post);
-        });
-        getData.then(res => setData(res));
-    }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get('https://blog-db652-default-rtdb.firebaseio.com/blogs.json');
+      const responseData = response.data;
+      const dataArray = Object.values(responseData);
+      setData(dataArray);
+    };    
+    fetchData();
+  }, []);
 
   return (
     <div className="container">
