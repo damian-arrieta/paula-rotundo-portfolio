@@ -2,14 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Post({info}) {
-  console.log('info:', info);
+  const titleObj = info.content.find(item => item.type === 'title');
+  const imageObj = info.content.find(item => item.type === 'img' && item.imageUrl);
+
   return (
     <div className="col">
       <Link to={`/post/${info.id}`}>
         <div className="card shadow-sm">
-          <img src={info.image} className="bd-placeholder-img card-img-top" width="100%" height="225"></img>
+        <img src={imageObj.imageUrl} className="bd-placeholder-img card-img-top" width="100%" height="225" alt={titleObj.value} />
           <div className="card-body">
-            <h2 className="card-text text-center text-decoration-none">{info.title}</h2>
+            <h2 className="card-text text-center text-decoration-none">{titleObj.value}</h2>
           </div>
         </div>
       </Link>
