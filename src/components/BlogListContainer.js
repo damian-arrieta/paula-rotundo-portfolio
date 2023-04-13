@@ -8,10 +8,10 @@ export default function BlogListContainer() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('https://blog-db652-default-rtdb.firebaseio.com/blogs.json');
+      const response = await axios.get('https://blog-db652-default-rtdb.firebaseio.com/.json');
       const responseData = response.data;
-      const dataArray = Object.values(responseData);
-      setData(dataArray);
+      const dataArray = Object.values(responseData.blogs);
+      setData(dataArray);      
     };    
     fetchData();
   }, []);
