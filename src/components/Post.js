@@ -9,7 +9,7 @@ export default function Post({info, id}) {
 
   return (
     <div className="col">
-      <Link to={`/post/${id}`}>
+      <Link to={`/posts/${id}`}>
         <div className="card shadow-sm">
         <img src={imageObj.imageUrl} className="bd-placeholder-img card-img-top" width="100%" height="225" alt={titleObj.value} />
           <div className="card-body">

@@ -10,11 +10,14 @@ export default function BlogListContainer() {
     const fetchData = async () => {
       const response = await axios.get('https://blog-db652-default-rtdb.firebaseio.com/.json');
       const responseData = response.data;
-      const dataArray = Object.values(responseData.blogs);
+      const dataArray = Object.entries(responseData.blogs).map(([id, data]) => ({ ...data, id }));
       setData(dataArray);      
     };    
     fetchData();
   }, []);
+  
+
+  console.log(data.id);
 
   return (
     <div className="container">

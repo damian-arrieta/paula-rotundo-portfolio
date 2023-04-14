@@ -3,6 +3,8 @@ import Post from './Post';
 
 export default function PostList({data = []}) {
   return (
-    data.map(post => <Post key={post.id} info={post} id={post.id} />)
+    data.map(post => {
+      return <Post key={post.id} info={post} id={post.id} />
+    })
   )
 }
