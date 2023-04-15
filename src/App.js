@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/post/:postId' element={<PostDetailContainer />} />
+          <Route path='/posts/:id' element={<PostDetailContainer />} />
           <Route path='/form' element={<BlogEntryForm />} />
         </Routes>
       </BrowserRouter>

@@ -5,8 +5,6 @@ export default function Post({info, id}) {
   const titleObj = info.content.find(item => item.type === 'title');
   const imageObj = info.content.find(item => item.type === 'img' && item.imageUrl);
 
-  console.log('ID:', id); // Agregamos esto para verificar que se recibe el ID correctamente
-
   return (
     <div className="col">
       <Link to={`/posts/${id}`}>

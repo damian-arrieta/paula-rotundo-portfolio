@@ -15,13 +15,10 @@ export default function BlogListContainer() {
     };    
     fetchData();
   }, []);
-  
-
-  console.log(data.id);
 
   return (
     <div className="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <PostList data={data} />
       </div>
     </div>
