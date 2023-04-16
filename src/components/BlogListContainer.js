@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import PostList from './PostList';
 
 export default function BlogListContainer() {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get('https://blog-db652-default-rtdb.firebaseio.com/.json');
-      const responseData = response.data;
-      const dataArray = Object.entries(responseData.blogs).map(([id, data]) => ({ ...data, id }));
-      setData(dataArray);      
-    };    
-    fetchData();
+    const db = getDatabase();
+    const blogRef = ref(db, 'blogs');
+  
+    onValue(blogRef, (snapshot) => {
+      const data = snapshot.val();
+      const blogData = Object.keys(data).map((key) => {
+        return { id: key, ...data[key] };
+      });
+      setData(blogData);
+    });
   }, []);
 
   return (
@@ -22,5 +24,5 @@ export default function BlogListContainer() {
         <PostList data={data} />
       </div>
     </div>
-  )
+  );
 }

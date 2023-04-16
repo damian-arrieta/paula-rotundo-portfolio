@@ -1,20 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Post({info, id}) {
-  const titleObj = info.content.find(item => item.type === 'title');
-  const imageObj = info.content.find(item => item.type === 'img' && item.imageUrl);
+export default function Post({ info }) {
+
+  const imgProp = Object.values(info).find(prop => prop.type === "img");
+  const titleProp = Object.values(info).find(prop => prop.type === "title");
+
+  const imgUrl = imgProp ? imgProp.imageUrl : null;
+  const title = titleProp ? titleProp.value : null;
 
   return (
     <div className="col">
-      <Link to={`/posts/${id}`}>
+      <Link to={`/posts/${info.id}`}>
         <div className="card shadow-sm">
-        <img src={imageObj.imageUrl} className="bd-placeholder-img card-img-top" width="100%" height="225" alt={titleObj.value} />
+          {imgUrl && <img src={imgUrl} className="bd-placeholder-img card-img-top" width="100%" height="225" alt={title} />}
           <div className="card-body">
-            <h2 className="card-text text-center text-decoration-none">{titleObj.value}</h2>
+            {title && <h2 className="card-text text-center text-decoration-none">{title}</h2>}
           </div>
         </div>
       </Link>
     </div>
   )
 }
+

@@ -41,17 +41,16 @@ function BlogEntryForm() {
     setImageUrl("");
   };  
 
-  const sendDataToAPI = () => {
-    const blogRef = push(ref(db, 'blogs'));
-    set(blogRef, { content: blogContent });
-    console.log("Enviando datos a la API:", blogContent);
-  };
-
   const handleFinishButtonClick = () => {
     if (blogContent.length > 0) {
-      const blogRef = push(ref(db, "blogs"));
-      set(blogRef, { content: blogContent });
-      console.log("Enviando datos a la API:", blogContent);
+      const newBlogRef = push(ref(db, "blogs"));
+      const newBlogKey = newBlogRef.key;
+      const newBlogData = {};
+      blogContent.forEach((content, index) => {
+        newBlogData[index] = content;
+      });
+      set(ref(db, `blogs/${newBlogKey}`), newBlogData);
+      console.log("Enviando datos a la API:", newBlogData);
       setBlogContent([]);
     }
   };
@@ -101,25 +100,25 @@ function BlogEntryForm() {
               </select>
             </div>
             {contentType === "img" && (<div className="mb-3">
-<label htmlFor="image" className="form-label">
-Link de la imagen:
-</label>
-<input
-type="text"
-className="form-control"
-id="image"
-name="image"
-value={imageUrl}
-onChange={(event) => setImageUrl(event.target.value)}
-required
-/>
-</div>)}
-<button type="submit" className="btn btn-primary">
-Agregar contenido
-</button>
-</form>
-)}
-<div className="container my-5">
+        <label htmlFor="image" className="form-label">
+        Link de la imagen:
+        </label>
+        <input
+        type="text"
+        className="form-control"
+        id="image"
+        name="image"
+        value={imageUrl}
+        onChange={(event) => setImageUrl(event.target.value)}
+        required
+        />
+        </div>)}
+        <button type="submit" className="btn btn-primary">
+        Agregar contenido
+        </button>
+        </form>
+        )}
+        <div className="container my-5">
           <h2>Vista previa</h2>
           <hr />
           {blogContent.map((content, index) => (
