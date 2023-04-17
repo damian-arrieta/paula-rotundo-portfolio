@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import db from '../Firebase/config';
 import { push, ref, set } from 'firebase/database';
+import Navbar from '../components/Navbar';
 
 function BlogEntryForm() {
-    const [blogContent, setBlogContent] = useState([]);
-    const [showForm, setShowForm] = useState(true);
-    const [contentType, setContentType] = useState("title");
-    const [contentValue, setContentValue] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+  const [blogContent, setBlogContent] = useState([]);
+  const [showForm, setShowForm] = useState(true);
+  const [contentType, setContentType] = useState("title");
+  const [contentValue, setContentValue] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleContentTypeChange = (event) => {
     const selectedType = event.target.value;
@@ -56,28 +57,13 @@ function BlogEntryForm() {
   };
 
   return (
-    <>
-      <div className="container my-5">
-        <h1>Crear contenido</h1>
+    <> 
+      <Navbar />
+      <div className="container my-5 blog-entry">
+        <h2>Crear contenido</h2>
         <hr />
-
         {showForm && (
           <form onSubmit={handleFormSubmit}>
-            {contentType !== "img" && (
-              <div className="mb-3">
-                <label htmlFor="content" className="form-label">
-                  Contenido:
-                </label>
-                <textarea
-                  className="form-control"
-                  id="content"
-                  name="content"
-                  value={contentValue}
-                  onChange={handleContentValueChange}
-                  required
-                ></textarea>
-              </div>
-            )}
             <div className="mb-3">
               <label htmlFor="type" className="form-label">
                 Tipo de contenido:
@@ -99,25 +85,41 @@ function BlogEntryForm() {
                 <option value="img">Link a imagen</option>
               </select>
             </div>
-            {contentType === "img" && (<div className="mb-3">
-        <label htmlFor="image" className="form-label">
-        Link de la imagen:
-        </label>
-        <input
-        type="text"
-        className="form-control"
-        id="image"
-        name="image"
-        value={imageUrl}
-        onChange={(event) => setImageUrl(event.target.value)}
-        required
-        />
-        </div>)}
-        <button type="submit" className="btn btn-primary">
-        Agregar contenido
-        </button>
-        </form>
-        )}
+            {contentType !== "img" && (
+              <div className="mb-3">
+                <label htmlFor="content" className="form-label">
+                  Contenido:
+                </label>
+                <textarea
+                  className="form-control"
+                  id="content"
+                  name="content"
+                  value={contentValue}
+                  onChange={handleContentValueChange}
+                  required
+                ></textarea>
+              </div>
+            )}
+            {contentType === "img" && (
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label">
+              Link de la imagen:
+              </label>
+              <input
+              type="text"
+              className="form-control"
+              id="image"
+              name="image"
+              value={imageUrl}
+              onChange={(event) => setImageUrl(event.target.value)}
+              required
+              />
+            </div>)}
+            <button type="submit" className="btn btn-primary">
+            Agregar contenido
+            </button>
+          </form>
+          )}
         <div className="container my-5">
           <h2>Vista previa</h2>
           <hr />
@@ -149,16 +151,16 @@ function BlogEntryForm() {
               )}
             </div>
           ))}
-        </div>
-        {blogContent.length > 0 && (
-        <button
-          className="btn btn-success"
-          onClick={handleFinishButtonClick}
-        >
-          Publicar
-        </button>
-      )}
-      </div>
+          </div>
+          {blogContent.length > 0 && (
+          <button
+            className="btn btn-success"
+            onClick={handleFinishButtonClick}
+          >
+            Publicar
+          </button>
+        )}
+       </div>
     </>
   );
 }

@@ -40,6 +40,14 @@ p, a, li, button, ul {
   text-decoration: none;
 }
 
+.post-detail{
+  min-height: 70vh;
+}
+
+.blog-entry{
+  min-height: 65vh;
+}
+
 .text-principal {
   color: var(--principal);
 }
