@@ -1,12 +1,16 @@
 import React from 'react';
 
 export default function PostDetail({ data }) {
-console.log(data.content)
+  const imgProp = data && Object.values(data).find(prop => prop.type === "img");
+  const titleProp = data && Object.values(data).find(prop => prop.type === "title");
+
+  const imgUrl = imgProp ? imgProp.imageUrl : null;
+  const title = titleProp ? titleProp.value : null;
+
   return (
     <div>
-      <p>Este es el detalle del post con ID {data.id}</p>
-      <p>Este es el detalle {data.content}</p>
-    
+      <img src={imgUrl} alt="Post" />
+      <h1>{title}</h1>
     </div>
-  )
+  );
 }

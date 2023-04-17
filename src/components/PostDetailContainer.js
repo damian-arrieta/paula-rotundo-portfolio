@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { getDatabase, ref, onValue } from 'firebase/database';
+import { useParams } from 'react-router-dom';
 import PostDetail from './PostDetail';
 import Navbar from './Navbar';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export default function PostDetailContainer() {
   const [data, setData] = useState({});
-
   const { id } = useParams();
 
   useEffect(() => {
-    const querydb = getFirestore();
-    const queryDoc = doc(querydb, 'Posts', id);
-    getDoc(queryDoc).then(res => {
-      const postData = res.data();
-      const content = postData?.blogs?.[id]?.content || []; // Accede a la propiedad `content` del objeto con el `id` correspondiente
-      setData({ ...postData, content }); // Agrega la propiedad `content` al objeto `data` que se pasa como prop
+    const db = getDatabase();
+    const postRef = ref(db, `blogs/${id}`);
+    onValue(postRef, (snapshot) => {
+      const postData = snapshot.val();
+      setData(postData);
     });
   }, [id]);
 

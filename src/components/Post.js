@@ -9,6 +9,8 @@ export default function Post({ info }) {
   const imgUrl = imgProp ? imgProp.imageUrl : null;
   const title = titleProp ? titleProp.value : null;
 
+  console.log(title)
+
   return (
     <div className="col">
       <Link to={`/posts/${info.id}`}>
