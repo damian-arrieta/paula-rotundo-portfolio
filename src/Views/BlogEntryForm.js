@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import db from '../Firebase/config';
+import { db } from '../Firebase/config';
 import { push, ref, set } from 'firebase/database';
 import Navbar from '../components/Navbar';
 
-function BlogEntryForm() {
+function BlogEntryForm({ user }) {
   const [blogContent, setBlogContent] = useState([]);
   const [showForm, setShowForm] = useState(true);
   const [contentType, setContentType] = useState("title");
@@ -57,9 +57,11 @@ function BlogEntryForm() {
   };
 
   return (
-    <> 
-      <Navbar />
-      <div className="container my-5 blog-entry">
+    <>
+    <Navbar />
+    <div>
+      {user ? (
+        <div className="container my-5 blog-entry">
         <h2>Crear contenido</h2>
         <hr />
         {showForm && (
@@ -161,6 +163,10 @@ function BlogEntryForm() {
           </button>
         )}
        </div>
+      ) : (
+        <h1>No estás autenticado</h1>
+      )}
+    </div>
     </>
   );
 }
