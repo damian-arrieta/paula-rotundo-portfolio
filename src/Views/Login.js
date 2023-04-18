@@ -3,7 +3,7 @@ import { auth } from '../Firebase/config';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ setUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
@@ -37,7 +37,8 @@ function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/form'); // Redirect to the Form component
+      setUser({ email }); // Set the user state
+      navigate('/form'); // Redirect to the Home component
     } catch (error) {
       console.error('Error al iniciar sesión:', error);
       setErrors(['El correo electrónico o la contraseña son incorrectos']);
