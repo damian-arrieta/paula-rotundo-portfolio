@@ -22,7 +22,10 @@
 }
 
 body {
-  background-color: var(--background);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("./assets/clock.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,6 +45,7 @@ p, a, li, button, ul {
 
 .text-principal {
   color: var(--principal);
+  text-shadow: 0.5px 0.5px 1px rgba(252, 192, 197, 1);
 }
 
 .header {
@@ -61,7 +65,17 @@ p, a, li, button, ul {
   background-color: var(--principal);
 }
 
-.line-bottom{
-  border-bottom: 1px solid var(--principal);
-  width: auto;
+footer {
+  height: 80px;
+  background-color: var(--background);
+}
+
+@media (max-width: 425px) {
+  body{
+    background-position: 40% center;
+  }
+
+  .header {
+    height: auto;
+  }
 }

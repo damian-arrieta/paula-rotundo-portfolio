@@ -29,7 +29,7 @@ export default function Header() {
             <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
               <div className="col">
                 <div className="row">
-                  <ul className="nav justify-content-center pb-3 mb-3">
+                  <ul className="nav justify-content-center align-items-center pb-3 mb-3 flex-column flex-sm-row">
                     <li className="nav-item">
                       <a href="https://sites.google.com/view/ganeshinbound/inicio" className="btn nav-link px-2 link-header" target="_blank" rel="noreferrer">
                         <i className="btn btn-lg btn-header bi bi-book"></i>
@@ -48,7 +48,7 @@ export default function Header() {
                   </ul>
                 </div>
                 <div className="row">
-                  <ul className="nav justify-content-center pb-3 mb-3">
+                  <ul className="nav justify-content-center align-items-center pb-3 mb-3 flex-column flex-sm-row">
                     <li className="nav-item">
                       <a href="https://www.tiktok.com/@ganeshinbound" className="nav-link px-2 link-header" target="_blank" rel="noreferrer">
                         <i className="btn btn-lg btn-header bi bi-tiktok"></i>
