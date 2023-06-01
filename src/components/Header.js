@@ -25,24 +25,32 @@ export default function Header() {
         <div className="text-center">
           <h1 className="display-5 fw-bold text-center text-principal mb-5">Paula Rotundo</h1>
           <div className="col-lg-6 mx-auto text-center">
-            <p className="lead mb-4 text-principal mb-5">¡Bienvenidos! Mi nombre es Pau, creadora de <span className="text-uppercase">ganesh inbound marketing</span> y su blog <span className="text-uppercase">oportuncrisis</span>. En este espacio comparto herramientas para todas aquellas personas que desean llevar a otro nivel sus proyectos, trabajos, emprendimientos y pymes. Gracias por estar aquí.</p>
+            <p className="lead text-principal">Con una base de más de 12 años de experiencia en venta de servicios, he creado Ganesh Inbound.</p>
+            <p className="lead text-principal">Desde aquí ayudo a profesionales, startups y emprendedores a pasar al siguiente nivel.</p>
+            <br />
+            <p className='lead text-principal text-uppercase'>Crear un vínculo sólido entre tu marca y tus clientes.</p>
+            <br />
+            <p className="lead text-principal">Si tu objetivo es que las personas hablen de vos por la excelencia de tu servicio, llegaste al lugar indicado. Tengo las herramientas necesarias para que consigas esa realidad.</p>
+            <p className="lead text-principal">Mi nombre es Paula, founder de Ganesh Inbound y su blog Oportuncrisis.</p>
+            <br />
+            <p className="lead text-principal mb-5">¿Trabajamos juntos?</p>
             <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
               <div className="col">
                 <div className="row">
                   <ul className="nav justify-content-center align-items-center pb-3 mb-3 flex-column flex-sm-row">
                     <li className="nav-item">
-                      <a href="https://sites.google.com/view/ganeshinbound/inicio" className="btn nav-link px-2 link-header" target="_blank" rel="noreferrer">
-                        <i className="btn btn-lg btn-header bi bi-book"></i>
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="https://www.linkedin.com/in/paula-rotundo-20b886241/" className="nav-link px-2 link-header" target="_blank" rel="noreferrer">
-                        <i className="btn btn-lg btn-header bi bi-linkedin"></i>
-                      </a>
+                      <button onClick={handleChatClick} className="nav-link px-2 link-header">
+                        <i className="btn btn-lg btn-header bi bi-whatsapp"></i>
+                      </button>
                     </li>
                     <li className="nav-item">
                       <a href="https://www.instagram.com/ganeshinbound/" className="nav-link px-2 link-header" target="_blank" rel="noreferrer">
                         <i className="btn btn-lg btn-header bi bi-instagram"></i>
+                      </a>
+                    </li>
+                    <li className="nav-item">
+                      <a href="https://sites.google.com/view/ganeshinbound/inicio" className="btn nav-link px-2 link-header" target="_blank" rel="noreferrer">
+                        <i className="btn btn-lg btn-header bi bi-book"></i>
                       </a>
                     </li>
                   </ul>
@@ -60,9 +68,9 @@ export default function Header() {
                       </button>
                     </li>
                     <li className="nav-item">
-                      <button onClick={handleChatClick} className="nav-link px-2 link-header">
-                        <i className="btn btn-lg btn-header bi bi-whatsapp"></i>
-                      </button>
+                      <a href="https://www.linkedin.com/in/paula-rotundo-20b886241/" className="nav-link px-2 link-header" target="_blank" rel="noreferrer">
+                        <i className="btn btn-lg btn-header bi bi-linkedin"></i>
+                      </a>
                     </li>
                   </ul>
                 </div>
