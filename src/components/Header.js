@@ -13,7 +13,7 @@ export default function Header() {
   const handleEmailClick = () => {
     const emailAddress = 'ganeshinbound@gmail.com';
     const subject = encodeURIComponent('Consulta de servicio');
-    const body = encodeURIComponent('Hola Paula, quisera conocer mas de tus servicios...');
+    const body = encodeURIComponent('Hola Paula, quisiera conocer más de tus servicios...');
     const emailUrl = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
 
     window.location.href = emailUrl;
