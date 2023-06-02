@@ -10,8 +10,6 @@ Esta es una landing page desarrollada en React para Paula Rotundo que es dueña 
 
 ### `Diseño moderno y atractivo para una experiencia de usuario agradable.`
 
-### `npm run eject`
-
 ## Landing Page
 
 [![landing.jpg](https://i.postimg.cc/c43sWxD6/landing.jpg)](https://postimg.cc/YhpcfHBw)
